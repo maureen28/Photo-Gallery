@@ -66,18 +66,40 @@ class ImageTestClass(TestCase):
     # Testing Delete Method
     def delete_method_test(self):
         self.image1.save_image()
-        deleted_image = Image.objects.filter(name='Lancelin')
-        Image.delete_image(deleted_image)
+        filtered_img = Image.objects.filter(name='Lancelin')
+        Image.delete_image(filtered_img)
         final_images = Image.objects.all()
         self.assertTrue(len(final_images) == 0)
 
     # Testing Update Method
-    
-    # Testing Display Method
+     def update_method_test(self):
+        self.image1.save_image()
+        filtered_img = Image.update_image('Lancelin','Dunes')
+        fetched = Image.objects.get(name='Dunes')
+        self.assertEqual(fetched.name,'Dunes')
+
+    # Testing get image Method
+    def get_image_by_id_test_method(self):
+        self.image1.save_image()
+        fetched_image = Image.get_image_by_id(1)
+        self.assertEqual(fetched_image.id,1)
+
+    # Testing search image Method
+    def test_search_by_category(self):
+        self.image1.save_image()
+        fetch_specific = Category.objects.get(cat_name='Dance')
+        self.assertTrue(fetch_specific.cat_name=='Dance')
+
+
+    # Testing filter location Method
+    def test_filter_by_location(self):
+        self.image1.save_image()
+        fetch_specific = Location.objects.get(location_name='Mombasa')
+        self.assertTrue(fetch_specific.location_name=='Mombasa')
+
+
     def test_display_final_images_method(self):
         self.image1.save_image()
         final_images = Image.retrieve_all()
-        self.assertEqual(final_images.image_name,'learn')
+        self.assertEqual(final_images.image_name,'Lancelin')
 
-
-  

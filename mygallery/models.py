@@ -39,3 +39,15 @@ class Image(models.Model):
     # Delete image
     def delete_image(self):
         self.delete()
+
+    #  Update image
+    @classmethod
+    def update_image(cls,current_value,new_value):
+        filtered_image = Image.objects.filter(image_name=current_value).update(image_name=new_value)
+        return filtered_image
+
+    #  get image by id image
+    @classmethod
+    def get_image_by_id(cls,incoming_id):
+        image_result = cls.objects.get(id=incoming_id)
+        return image_result
