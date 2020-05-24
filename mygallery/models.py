@@ -55,13 +55,13 @@ class Image(models.Model):
     # search by category
     @classmethod
     def search_by_category(cls,search_term):
-        search_result = cls.objects.filter(image_category__cat_name__icontains=search_term)
+        search_result = cls.objects.filter(category__title__icontains=search_term)
         return search_result
 
     # filter by location
     @classmethod
     def filter_by_location(cls,location):
-        filtered_result = cls.objects.filter(image_location__location_name__icontains=location)
+        filtered_result = cls.objects.filter(location__country__icontains=location)
         return filtered_result
 
     # all images

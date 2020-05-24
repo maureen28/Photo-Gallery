@@ -72,7 +72,7 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(final_images) == 0)
 
     # Testing Update Method
-     def update_method_test(self):
+    def update_method_test(self):
         self.image1.save_image()
         filtered_img = Image.update_image('Lancelin','Dunes')
         fetched = Image.objects.get(name='Dunes')
@@ -87,19 +87,19 @@ class ImageTestClass(TestCase):
     # Testing search image Method
     def search_by_category_test_method(self):
         self.image1.save_image()
-        fetch_specific = Category.objects.get(name='Food')
-        self.assertTrue(fetch_specific.name=='Food')
+        fetch_specific = Category.objects.get(title='Food')
+        self.assertTrue(fetch_specific.title=='Food')
 
 
     # Testing filter location Method
-    def test_filter_by_location(self):
+    def filter_by_location_test_method(self):
         self.image1.save_image()
-        fetch_specific = Location.objects.get(location_name='Mombasa')
-        self.assertTrue(fetch_specific.location_name=='Mombasa')
+        fetch_specific = Location.objects.get(country='Tanzania')
+        self.assertTrue(fetch_specific.country=='Tanzania')
 
-
-    def test_display_final_images_method(self):
+    #  test all images
+    def display_all_images_test_method(self):
         self.image1.save_image()
         final_images = Image.retrieve_all()
-        self.assertEqual(final_images.image_name,'Lancelin')
+        self.assertEqual(final_images.name,'Lancelin')
 
