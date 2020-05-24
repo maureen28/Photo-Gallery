@@ -12,8 +12,11 @@ def welcome(request):
 def get_category(request,category):
     categ = Category.objects.all()
     search_cats = Image.objects.filter(category__title = category)
-    return render(request, 'index.html',{'all_categories':all_categories, 'search_cats':search_cats, 'loca':loca})
+    message = f"{category}"
+    return render(request, 'index.html',{'categ':categ, 'search_cats':search_cats, 'message':message})
 
 def get_location(request,location):
     loca = Location.objects.all()
-    return render(request, 'index.html',{})
+    search_loca = Image.objects.filter(location__country = location)
+    message = f"{location}"
+    return render(request, 'index.html',{'search_loca':search_loca, 'loca':loca, 'message':message})
