@@ -30,9 +30,29 @@ class CategoryTestClass(TestCase):
     def test_instance(self):
        self.assertTrue(isinstance(self.travel, Category))
 
-
     # Testing Save Method
     def save_method_test(self):
         self.travel.save_category()
         categorys = Category.objects.all()
         self.assertTrue(len(categorys) > 0)
+
+
+# Image
+class ImageTestClass(TestCase):
+
+    def setUp(self):
+        # Creating a new location and saving it
+        self.kenya = Location(country = 'Tanzania')
+        self.kenya.save_location()
+
+        # Creating a new category and saving it
+        self.travel = Category(name = 'Travel')
+        self.travel.save()
+
+        self.new_image= Image(name = 'Lancelin', description = 'SandDunes in W.A', location = self.kenya, category = self.travel)
+        self.new_image.save()
+
+    def tearDown(self):
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+        Image.objects.all().delete()
