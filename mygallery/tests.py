@@ -52,13 +52,32 @@ class ImageTestClass(TestCase):
         self.image1= Image(name = 'Lancelin', description = 'SandDunes in W.A', location = self.kenya, category = self.travel)
         self.image1.save()
 
- # Testing Save Method
+    def tearDown(self):
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+        Image.objects.all().delete()
+
+    # Testing Save Method
     def save_method_test(self):
         self.image1.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
 
-    def tearDown(self):
-        Location.objects.all().delete()
-        Category.objects.all().delete()
-        Image.objects.all().delete()
+    # Testing Delete Method
+    def delete_method_test(self):
+        self.image1.save_image()
+        deleted_image = Image.objects.filter(name='Lancelin')
+        Image.delete_image(deleted_image)
+        final_images = Image.objects.all()
+        self.assertTrue(len(final_images) == 0)
+
+    # Testing Update Method
+    
+    # Testing Display Method
+    def test_display_final_images_method(self):
+        self.image1.save_image()
+        final_images = Image.retrieve_all()
+        self.assertEqual(final_images.image_name,'learn')
+
+
+  
