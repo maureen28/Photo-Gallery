@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http  import HttpResponse
-from mygallery.models import Image,Category, Location
+from django.http  import HttpResponse, Http404
+from mygallery.models import Image, Category, Location
 
 # Create your views here.
 def welcome(request):
@@ -20,3 +20,11 @@ def get_location(request,location):
     search_loca = Image.objects.filter(location__country = location)
     message = f"{location}"
     return render(request, 'index.html',{'search_loca':search_loca, 'loca':loca, 'message':message})
+
+
+def navlocation(request):
+
+    categ = Category.objects.all()
+    loca = Location.get_location()
+
+    return render(request, 'navbar.html', {"loca": loca, 'categ':categ})
