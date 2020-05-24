@@ -51,3 +51,22 @@ class Image(models.Model):
     def get_image_by_id(cls,incoming_id):
         image_result = cls.objects.get(id=incoming_id)
         return image_result
+
+    # search by category
+    @classmethod
+    def search_by_category(cls,search_term):
+        search_result = cls.objects.filter(image_category__cat_name__icontains=search_term)
+        return search_result
+
+    # filter by location
+    @classmethod
+    def filter_by_location(cls,location):
+        filtered_result = cls.objects.filter(image_location__location_name__icontains=location)
+        return filtered_result
+
+    # all images
+    @classmethod
+    def retrieve_all(cls):
+        all_objects = Image.objects.all()
+        for item in all_objects:
+            return item;

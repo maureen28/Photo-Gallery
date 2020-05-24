@@ -85,10 +85,10 @@ class ImageTestClass(TestCase):
         self.assertEqual(fetched_image.id,1)
 
     # Testing search image Method
-    def test_search_by_category(self):
+    def search_by_category_test_method(self):
         self.image1.save_image()
-        fetch_specific = Category.objects.get(cat_name='Dance')
-        self.assertTrue(fetch_specific.cat_name=='Dance')
+        fetch_specific = Category.objects.get(name='Food')
+        self.assertTrue(fetch_specific.name=='Food')
 
 
     # Testing filter location Method
