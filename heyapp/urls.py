@@ -20,6 +20,6 @@ from mygallery.views import welcome, get_category, get_location
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('^$', welcome, name = 'welcome'),
-    url('category/', get_category, name = 'get_category'),
-    url('location/', get_location, name = 'get_location'),
+    url('category/(w/)', get_category, name = 'get_category'),
+    url('location/(w/)', get_location, name = 'get_location'),
 ]
