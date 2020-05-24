@@ -10,6 +10,7 @@ def welcome(request):
     return render(request, 'index.html',{'all_images': all_images, 'all_categories': all_categories, 'all_locations' : all_locations})
 
 def get_category(request):
+    
     return render(request, 'index.html',{})
 
 def get_location(request):

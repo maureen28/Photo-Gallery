@@ -49,8 +49,14 @@ class ImageTestClass(TestCase):
         self.travel = Category(name = 'Travel')
         self.travel.save()
 
-        self.new_image= Image(name = 'Lancelin', description = 'SandDunes in W.A', location = self.kenya, category = self.travel)
-        self.new_image.save()
+        self.image1= Image(name = 'Lancelin', description = 'SandDunes in W.A', location = self.kenya, category = self.travel)
+        self.image1.save()
+
+ # Testing Save Method
+    def save_method_test(self):
+        self.image1.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
 
     def tearDown(self):
         Location.objects.all().delete()
