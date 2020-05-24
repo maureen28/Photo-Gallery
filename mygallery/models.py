@@ -9,3 +9,11 @@ class Location(models.Model):
         return self.country
     class Meta:
         ordering = ['country']
+
+class Category(models.Model):
+    title = models.CharField(max_length = 100, unique=True)
+
+    def __str__(self):
+            return self.title
+
+
