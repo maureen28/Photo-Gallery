@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'heyapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gallery',
+        'NAME':'gallery',
         'USER': 'maureen',
     'PASSWORD':'New Password',
     }
