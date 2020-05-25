@@ -28,6 +28,8 @@ class Image(models.Model):
     description = models.TextField()
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
+    my_image = models.ImageField(upload_to='gallery/')
+
 
     def __str__(self):
         return self.name
