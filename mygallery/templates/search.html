@@ -1,24 +1,45 @@
 {%extends 'base.html'%}
 {% block content %}
-<div class="container">
+<div class="container-fluid">
 
   <div class="row">
     {% if categorys%}
-      <h2>Found {{ categorys|length }} of searched term {{message}}</h2>
+      <h2 class ='text-center'>Found {{ categorys|length }} of searched term {{message}}</h2>
     {% else %}
       <h2> Found 0 items for the search term {{message}}</h2>
     {% endif %}
 
   </div>
 
-  <div class="row">
+<div class="row">
 
   {% if categorys %}
-    {% for category in categorys %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{category.title}}</h1>
-      </div>
+  <div class="grid">
+    {% for image_item in categorys %}
+    <div id="main">
+        <div class="grid-item"><br><hr>
+          <img class="image" src="{{image_item.my_image.url}}" />
+            <div class="overlay">
+                <div class="text">
+                <!-- Image title -->
+                <p >{{ image_item.description }}</p>
+                <p><b>Location:</b> <a href="/location/{{image_item.location}}"> {{ image_item.location }} </a> <br>
+                <span><b> Category:</b> <a href="/category/{{image_item.category}}"> {{ image_item.category}} </a></span>
+                 </p>
+               <!-- The text field -->
+               <input type="text" id="imagelink" class="form-control input-sm" value="https://nimophotogall.herokuapp.com{{image.my_image.url}}" class="hidden" style="display:none;">
+              <button class="btn btn-primary btn-sm " onclick="CopyFunction()">
+                  Copy Link
+              </button>
+        </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+  </div>
     {% endfor %}
+
   {% endif %}
   </div>
 </div>

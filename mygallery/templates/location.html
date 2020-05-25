@@ -29,7 +29,7 @@
          <div class="grid">
         {% for image_item in images %}
         <div id="main">
-        <div class="grid-item "><br><br><hr>
+        <div class="grid-item "><br><hr>
           <img class="image" src="{{image_item.my_image.url}}" />
 
             <div class="overlay">
@@ -39,7 +39,11 @@
                 <p><b>Location:</b> <a href="/location/{{image_item.location}}"> {{ image_item.location }} </a> <br>
                 <span><b> Category:</b> <a href="/category/{{image_item.category}}"> {{ image_item.category}} </a></span>
                  </p>
-               <!-- The text field -->
+               <!-- The copy field -->
+                <input type="text" id="imagelink" class="form-control input-sm" value="https://nimophotogall.herokuapp.com{{image.my_image.url}}" class="hidden" style="display:none;">
+              <button class="btn btn-primary btn-sm " onclick="CopyFunction()">
+                  Copy Link
+              </button>
         </div>
             </div>
         </div>
