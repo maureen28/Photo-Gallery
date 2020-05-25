@@ -4,23 +4,23 @@ from mygallery.models import Image, Category, Location
 
 # Create your views here.
 def welcome(request):
-    all_images = Image.objects.all()
+    images = Image.objects.all()
     all_categories = Category.objects.all()
     all_locations = Location.objects.all()
-    return render(request, 'index.html',{'all_images': all_images, 'all_categories': all_categories, 'all_locations' : all_locations})
+    return render(request, 'index.html',{'images': images, 'all_categories': all_categories, 'all_locations' : all_locations})
 
 def get_category(request,category):
-    images = Image.search_by_category(category)
+    images = Image.objects.filter(category__title = category)
     all_categories = Category.objects.all()
     message = f"{category}"
-    return render(request, 'index.html', {"message":message, "images":images, 'categories': all_categories})
+    return render(request, 'category.html', {"message":message, "images":images, 'all_categories': all_categories})
 
 
 def get_location(request, location ):
     images = Image.filter_by_location(location)
     all_locations = Location.objects.all()
     message = f"{location}"
-    return render(request, 'index.html', {"message":message, "images":images, "locations":all_locations})
+    return render(request, 'location.html', {"message":message, "images":images, "all_locations":all_locations})
 
 
 def search_results(request):
@@ -35,6 +35,6 @@ def search_results(request):
         return render(request, 'search.html',{ 'message': message})
 
 def navlocation(request):
-    all_categories = Category.objects.all()
+
     all_locations = Location.objects.all()
-    return render(request, 'navbar.html', {"locations": all_locations, 'categories':all_categories})
+    return render(request, 'navbar.html', {"all_locations": all_locations})
