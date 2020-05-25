@@ -26,24 +26,29 @@ function CopyFunction() {
   alert("Copied the text: " + copyText.value);
 }
 </script>
+
 <!-- Main content -->
-
-
-<div class="container-fluid">
-   <div class="row">
-   <div class="col-md-3">
+<div id ='main' class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
   <!-- Looping through images   -->
   {% for image in all_images %}
      <!--Display images  -->
-       <img src="{{ image.my_image.url }}" class="img-responsive" alt="Image">
-    <!-- displaying content -->
 
-    <div id="overlay">
+       <img src="{{ image.my_image.url }}" class=" image img-responsive" alt="Image">
+
+
+   <!-- displaying content -->
+<div class="overlay">
+<div class="text">
       <h3 class="text-center"> {{ image.name }} </h3>
-
       <h5>{{ image.description }} </h5>
       <p><b>Category</b> :<a href="/category/{{image.category}}"> {{ image.category }} </a> </p>
       <p><b> Location </b>: <a href="/location/{{image.location}}"> {{ image.location }} </a> </p>
+    </div>
+    <button class="btn btn-primary btn-sm " onclick="CopyFunction()">
+        <i class="fa fa-copy" style="color: #d6962c"></i> Copy Link
+    </button>
     </div>
   </div>
   </div>
