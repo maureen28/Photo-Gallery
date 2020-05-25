@@ -5,7 +5,15 @@ Photo gallery is a personal gallery application that you display your photos for
 
 ### Author: Maureen Wairimu
 
+## User Story
 
+<ul>
+<li>Users can view the different photos that interest them.</li>
+<li>Users can click on a single photo to expand it and also view the details of the photo.</li>
+<li>Users can search for different categories of photos. </li>
+<li>Users can copy a link to the photo to share with my friends.</li>
+<li>Users can view photos based on the location they were taken.</li>
+</ul>
 
 ## Technology & Dependency
 
@@ -48,3 +56,12 @@ source virtual/bin/activate
 Use the command given below to run automated tests.
 <code> python manage.py test news </code>
 
+
+## Contact Information
+
+To get in touch E-MAIL me on nimz69509@gmail.com
+
+## License
+
+MIT License
+<b>Copyright (c) 2020 maureen28<b>
