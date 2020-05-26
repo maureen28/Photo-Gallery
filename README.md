@@ -61,7 +61,7 @@ Photo gallery is a personal gallery application that you display your photos for
 <img src="/find.jpg" alt="Found image" width="800"/>
 </ul>
 
-### Live link :
+### Live link : https://nimophotogall.herokuapp.com/
 
 ## Setup Instructions
 
