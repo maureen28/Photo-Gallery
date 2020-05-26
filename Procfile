@@ -1,4 +1,3 @@
-release: python3 manage.py makemigrations
-release: python3 manage.py migrate
-
-web: gunicorn mygallery.wsgi
+web: gunicorn mygallery.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
