@@ -60,3 +60,7 @@ body {
     display:block;
     z-index:999;
 }
+.footer{
+    background-color: black;
+    color: white;
+}
