@@ -1,4 +1,1 @@
-release: python3 manage.py makemigrations
-release: python3 manage.py migrate
-
-web: gunicorn heyapp.wsgi
+web: gunicorn heyapp.wsgi --log-file -
