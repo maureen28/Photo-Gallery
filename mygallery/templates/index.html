@@ -3,7 +3,7 @@
 {% block content %}
 {{block.super}}
 
-<!-- Owl carousel -->
+{% comment %} <!-- Owl carousel -->
 <div class="container-fluid">
     <div class="owl-carousel owl-theme owl">
         <div class="item"><img src="https://unsplash.it/1200/768.jpg?image=524" class='img-fluid' alt=""></div>
@@ -17,7 +17,7 @@
         <div class="item"><img src="https://unsplash.it/1200/768.jpg?image=49" class='img-fluid' alt="Greece"></div>
     </div>
 </div><br>
-{% comment %} End of carousel {% endcomment %}
+{% comment %} End of carousel {% endcomment %} {% endcomment %}
 <script>
 function CopyFunction() {
   var copyText = document.getElementById("imagelink");
